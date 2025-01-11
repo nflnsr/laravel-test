@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\Cors;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -13,9 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: getenv('APP_ENV') === 'local' || !getenv('APP_ENV') ? '/api' : '',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->use([
-            \Illuminate\Http\Middleware\HandleCors::class,
-        ]);
+        $middleware->append(Cors::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
