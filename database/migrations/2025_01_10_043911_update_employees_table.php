@@ -16,14 +16,13 @@ return new class extends Migration
         });
 
         Schema::table('employees', function (Blueprint $table) {
-            $table->string('division_id')->nullable(false)->change();
+            $table->uuid('division_id')->nullable(false)->change();
         });
 
         Schema::table('employees', function (Blueprint $table) {
             $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -35,7 +34,7 @@ return new class extends Migration
         });
 
         Schema::table('employees', function (Blueprint $table) {
-            $table->uuid('division_id')->nullable(false)->change();
+            $table->string('division_id')->nullable(false)->change(); 
         });
 
         Schema::table('employees', function (Blueprint $table) {
