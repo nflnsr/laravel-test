@@ -24,3 +24,4 @@ Route::middleware(AuthMiddleware::class)->group(function () {
     Route::delete('/admin/logout', [AdminController::class, 'logout']);
 });
 
+
