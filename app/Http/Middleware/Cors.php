@@ -16,7 +16,7 @@ class Cors
         $response = $next($request)
             ->header('Access-Control-Allow-Origin', [
                 'http://127.0.0.1:5173',
-                'https://react-test-aksamedia.vercel.app/',
+                'https://react-test-aksamedia.vercel.app',
                 '*',
             ])
             ->header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH, OPTIONS')
