@@ -13,7 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: getenv('APP_ENV') === 'local' || !getenv('APP_ENV') ? '/api' : '',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->use([
+            \Illuminate\Http\Middleware\HandleCors::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
